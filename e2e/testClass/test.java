@@ -27,7 +27,9 @@ public class test {
 		driver.get("https://demo.pippintitle.com/");
 		driver.manage().window().maximize();
 	}
-
+	
+	 // Test to login into the application and verify the OrderID
+	
 	@Test(priority = 0)
 
 	public void testLoginHomePage() throws InterruptedException {
@@ -42,12 +44,15 @@ public class test {
 		Assert.assertEquals(obj.verifyRecords(), orderId);
 		
 	}
-
+	 // Test to logout from Apllication
+	
 	@Test(priority = 1)
 	public void logoutApp() throws InterruptedException {
 		Thread.sleep(3000);
 		obj.logoutApplication();
 	}
+	
+	// Test to close the browser
 	
 	@AfterTest
 	public void closeBrowser() {
