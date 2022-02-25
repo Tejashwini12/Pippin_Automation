@@ -70,12 +70,16 @@ public class pipinObjects {
 		this.clickLogin();
 
 	}
+	
+	       // Click on InProgress
 
 	public void clickInProgress() throws InterruptedException {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//a[@class='active']")).click();
 	}
-
+         
+	     // method select a particular OrderID
+	
 	public void selectRecord(String record) {
 		List<WebElement> ls = new ArrayList<>();
 		ls = driver.findElements(By.xpath("//tr[@class='ng-star-inserted']/td[1]/span"));
@@ -99,6 +103,8 @@ public class pipinObjects {
 		}
 	}
 	
+	// method to pass the value of OrderId in  Test class
+	
 	public String verifyRecords() throws InterruptedException {
 		Thread.sleep(3000);
 		WebElement rl = driver.findElement(By.xpath("//div[@class='mat-form-field-infix']/span/input"));
@@ -106,6 +112,7 @@ public class pipinObjects {
 		return sst.trim();
 	}
 	
+	// to logout from application
 	public void logoutApplication() {
 		driver.findElement(By.xpath("//div[@class='ng-star-inserted']//span[@class='mat-button-wrapper']")).click();
 		driver.findElement(By.xpath("(//div[@class='mat-menu-content']//button)[4]")).click();
