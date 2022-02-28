@@ -80,27 +80,12 @@ public class pipinObjects {
          
 	     // method select a particular OrderID
 	
-	public void selectRecord(String record) {
-		List<WebElement> ls = new ArrayList<>();
-		ls = driver.findElements(By.xpath("//tr[@class='ng-star-inserted']/td[1]/span"));
-		List<String> st = new ArrayList<>();
-		for (WebElement e : ls) {
-			st.add(e.getText());
-
-		}
-		LinkedHashSet<String> hs = new LinkedHashSet<String>();
-		hs.addAll(st);
-		st.addAll(hs);
-		for (int i = 0; i < hs.size(); i++) {
-			if (st.get(i).equals(record)) {
-				System.out.println(ls.get(i).getText());
-				ls.get(i).getText();
-				st.get(i);
-				System.out.println("record Id is :- " + st.get(i));
-				ls.get(i).click();
-				break;
-			}
-		}
+	public void clickOnSearch(String record) throws InterruptedException {
+		WebElement m = driver.findElement(By.xpath("//div[@class='mat-form-field-infix']//input"));
+		m.sendKeys(record);
+		m.sendKeys(Keys.ENTER);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//tr//span[@class='wrapInSingleLine']")).click();
 	}
 	
 	// method to pass the value of OrderId in  Test class
