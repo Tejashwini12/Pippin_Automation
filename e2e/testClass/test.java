@@ -32,6 +32,7 @@ public class test {
 	
 	@Test(priority = 0)
 
+	
 	public void testLoginHomePage() throws InterruptedException {
 		obj = new pipinObjects(driver);
 
@@ -39,10 +40,12 @@ public class test {
 
 		obj.loginToPipin("pippintitle_demotest@mailinator.com", "DemoTest#567#");
 		obj.clickInProgress();
-		obj.selectRecord(orderId);
-
+		obj.clickOnSearch(orderId);
+		System.out.println("The order number passed in the test is "+orderId);
+		System.out.println("The order number found in the UI in the record is "+obj.verifyRecords());
 		Assert.assertEquals(obj.verifyRecords(), orderId);
-		
+		System.out.println("Test Passed");
+
 	}
 	 // Test to logout from Apllication
 	
